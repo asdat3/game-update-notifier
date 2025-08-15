@@ -44,7 +44,7 @@ class Discord:
         # _embed.add_embed_field(
         #     name="🕑 Checked at", value=timestamp.strftime("%Y/%m/%d %H:%M:%S")
         # ) # its wrong since my server time is wrong anyways
-        _embed.set_footer(text="Patch Notifier")
+        _embed.set_footer(text="Patches")
         _embed.set_timestamp()
 
         return _embed
