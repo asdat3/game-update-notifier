@@ -24,10 +24,10 @@ class Discord:
             _mention += "<@{}> ".format(_user_id)
 
         _description = "{}\n".format(_mention)
-        _description += "Updates have been detected on {}".format(self.platform)
+        _description += "Patches have been detected on {}".format(self.platform)
 
         _embed = DiscordEmbed(
-            title="🚨 UPDATES ARE COMING",
+            title="🚨 Patched: " + ", ".join(f"{app.name}" for app in updated_apps),
             description=_description,
             color=self.embed_color,
         )
@@ -39,12 +39,12 @@ class Discord:
                 _updated_app.id,
             )
 
-        _embed.set_thumbnail(url=self.thumb_url)
+        # _embed.set_thumbnail(url=self.thumb_url) # WTF is this?
         _embed.add_embed_field(name="🎮 Updated Games", value=_apps)
-        _embed.add_embed_field(
-            name="🕑 Checked at", value=timestamp.strftime("%Y/%m/%d %H:%M:%S")
-        )
-        _embed.set_footer(text="Notified by Game Update Notifier")
+        # _embed.add_embed_field(
+        #     name="🕑 Checked at", value=timestamp.strftime("%Y/%m/%d %H:%M:%S")
+        # ) # its wrong since my server time is wrong anyways
+        _embed.set_footer(text="Patch Notifier")
         _embed.set_timestamp()
 
         return _embed
