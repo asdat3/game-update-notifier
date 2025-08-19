@@ -2,8 +2,8 @@ version: "3"
 
 services:
   notifier:
-    image: ghcr.io/kurokobo/game-update-notifier:${GAME_UPDATE_NOTIFIER_TAG:?err}
-    # build: .
+    # image: ghcr.io/kurokobo/game-update-notifier:${GAME_UPDATE_NOTIFIER_TAG:?err}
+    build: .
 
     restart: always
     environment:
