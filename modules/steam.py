@@ -153,6 +153,10 @@ class Steam:
         return _is_updated, _updated_apps
 
     def check_update(self):
+        # Send a debug notifier with a template app
+        from modules.models import App
+        template_app = App(id="0:public", name="Debug App")
+        self.notifier.fire([template_app], self.timestamp)
         try:
             self.timestamp = datetime.now()
 
